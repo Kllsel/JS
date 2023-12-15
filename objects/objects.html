@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //task1
+        var time = {
+            hours: 18,
+            minutes: 26,
+            seconds: 13
+        };
+
+        function showTime(obj) {
+            console.log(`Current time: ${obj.hours}:${obj.minutes}:${obj.seconds}`);
+        }
+
+        function addSecond(obj) {
+            if (obj.seconds < 59) {
+                obj.seconds++;
+            } else {
+                obj.seconds = 0;
+
+                if (obj.minutes < 59) {
+                    obj.minutes++;
+                } else {
+                    obj.minutes = 0;
+
+                    if (obj.hours < 23) {
+                        obj.hours++;
+                    } else {
+                        obj.hours = 0;
+                    }
+                }
+            }
+
+            console.log(`Added second: ${obj.hours}:${obj.minutes}:${obj.seconds}`);
+        }
+
+        function subtractSecond(obj) {
+            if (obj.seconds > 0) {
+                obj.seconds--;
+            } else {
+                obj.seconds = 59;
+
+                if (obj.minutes > 0) {
+                    obj.minutes--;
+                } else {
+                    obj.minutes = 59;
+
+                    if (obj.hours > 0) {
+                        obj.hours--;
+                    } else {
+                        obj.hours = 23;
+                    }
+                }
+            }
+
+            console.log(`Subtracted second: ${obj.hours}:${obj.minutes}:${obj.seconds}`);
+        }
+
+        showTime(time);
+        addSecond(time);
+        subtractSecond(time);
+        //task2
+        var car = {};
+        car.producer = "Prdcr";
+        car.model = "mdl";
+        car.year = parseInt(1999);
+        car.avg_speed = parseInt(90);
+
+        function ShowInfo(obj) {
+            console.log(`------Information-----\nProducer: ${obj.producer}\nModel:${obj.model}\nYear: ${obj.year}\nAverage speed: ${obj.avg_speed}`);
+        }
+
+        function CountTimeByDistance(distance, avg_speed) {
+            let time = Math.round(distance / avg_speed);
+            if (time <= 4) {
+                return console.log(`Time to pass the distance of ${distance}: ${time} hours`);
+            } else {
+                let stops = Math.floor(time / 4);
+                time += stops; 
+                return console.log(`Time to pass the distance of ${distance} km (with stops): ${time} hours (including ${stops} stops)`);
+            }
+        }
+        ShowInfo(car);
+        CountTimeByDistance(1000, car.avg_speed);
+    </script>
+</body>
+
+</html>
