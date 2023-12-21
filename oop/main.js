@@ -1,3 +1,6 @@
+
+
+//Task1
 class Figure {
     constructor(name) {
         this._name = name;
@@ -99,3 +102,84 @@ for(let i =0; i < figures.length; i++){
     figures[i].showInfo();
 }
 
+
+
+//Task2
+class NewsItem{
+    constructor(name, content, date){
+        this.name = name;
+        this.content = content;
+        this.date = date;
+    }
+}
+
+class News{
+    constructor(){
+        this.news_array = [];
+    }
+
+    get newsCount() {
+        return this.news_array.length;
+    }
+
+    addNewsItem(news_item){
+        this.news_array.push(news_item);
+    }
+
+    deleteNewsItem(item_name){
+        for(let i =0; i < this.news_array.length; i++)
+        {
+            if(this.news_array[i].name === item_name){
+                this.news_array.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    sortNewsByDate() {
+        this.news_array.sort((a, b) => b.date - a.date);
+    }
+
+}
+
+
+
+
+const newsInstance = new News();
+
+// Add news items
+newsInstance.addNewsItem({
+    name: "Breaking News 1",
+    date: new Date("2023-01-01"),
+    content: "This is the first breaking news."
+});
+
+newsInstance.addNewsItem({
+    name: "Important Update",
+    date: new Date("2023-02-15"),
+    content: "An important update has been released."
+});
+
+newsInstance.addNewsItem({
+    name: "Local Event",
+    date: new Date("2023-03-10"),
+    content: "A local event is happening next week."
+});
+
+// Get the count of news items
+console.log("News Count:", newsInstance.newsCount);
+
+// Sort news items by date
+newsInstance.sortNewsByDate();
+
+// Display the sorted news items
+console.log("Sorted News Items:", newsInstance.news_array);
+
+// Delete a news item by name
+newsInstance.deleteNewsItem("Important Update");
+
+// Get the updated count of news items
+console.log("Updated News Count:", newsInstance.newsCount);
+
+// Display the updated news items after deletion
+console.log("Updated News Items:", newsInstance.news_array);
