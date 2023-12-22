@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showBrackets(amount){
+           let text = "";
+           for(let i = 0; i < amount;i++)
+           {
+            text += "(";
+           }
+           for(let i = 0; i < amount;i++)
+           {
+            text += ")";
+           }
+           return text;
+        }
+        console.log(`Result: `, showBrackets(6));
+
+        function getRectangleArea(width, height){
+            try{
+                if(width === undefined || height === undefined){
+                    throw new Error("Width or height is undefined!");
+                }
+                else if(typeof(width) !== "number" || typeof(height) !== "number"){
+                    throw new Error("Width or height is not a number!");
+                }
+                else if(width <= 0 || height <= 0){
+                    throw new Error("Width or height is 0 or less!");
+                }
+                else return console.log("Area: ", width * height);
+                
+            }
+            catch(ex)
+            {
+                console.log(ex.message);
+            }
+           
+        }
+        getRectangleArea(15,6);
+        getRectangleArea(-15,6);
+        getRectangleArea(null,null);
+        getRectangleArea("werwer5",6);
+        getRectangleArea(undefined);
+
+
+       
+        class WeekDayError{
+            constructor(message){
+                this.message = message;
+            }
+        }
+        function showWeekdayName(day){
+            var WeekDay =["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            try{
+            if(day === undefined){throw new WeekDayError("The day is undefined")}
+            else if(day <= 0 || day > 6){throw new WeekDayError("The day is not correct")}
+            else console.log(`day of the week: `, WeekDay[day]);
+            }
+            catch(ex){
+                console.log(ex.message);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
