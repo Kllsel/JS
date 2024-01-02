@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tickets</h1>
+
+    <h2>Buy a ticket</h2>
+    <form name="creationForm">
+        <div class="mt">
+            <label>
+                <span>From:</span>
+                <input name="from" type="text">
+            </label>
+            <label>
+                <span>To:</span>
+                <input name="to" type="text">
+            </label>
+            <label>
+                <span>Date:</span>
+                <input name="date" type="date">
+            </label>
+            <label>
+                <span>Price:</span>
+                <input name="price" type="number">
+            </label>
+        </div>
+        <div class="mt">
+            <button type="reset">Cancel</button>
+            <button id="submit-btn" type="submit">Add</button>
+        </div>
+    </form>
+    
+    <form onsubmit="event.preventDefault();" role="search">
+        <label>Search for stuff</label>
+        <input id="search" type="search" placeholder="Search..." autofocus required />
+        <button id="gobtn"  type="submit">Go</button>    
+      </form>
+
+    <h2>Tickets Catalog</h2>
+    <div>
+        <button id="clear-btn">Clear</button>
+    </div>
+
+    <table id="ticket-table" class="mt">
+        <thead>
+            <tr>
+                <th>№.</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Rivne</td>
+                <td>Kyiv</td>
+                <td>10-10-2010</td>
+                <td>500$</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Odesa</td>
+                <td>Kharkiv</td>
+                <td>10-10-2010</td>
+                <td>500$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="./main.js"></script>
+</body>
+</html>
